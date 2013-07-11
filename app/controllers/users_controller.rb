@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_filter :authenticate, except: [:new, :create]
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -27,6 +31,13 @@ class UsersController < ApplicationController
       flash[:notices] = "Could not activate"
       redirect_to root_url
     end
+  end
+
+  def adminize
+    @user = User.find(params[:id])
+    @user.admin = true
+    @user.save
+    redirect_to users_url
   end
 
   def show

@@ -2,6 +2,9 @@
 <h3>By <%= @track.album.band.band_name %></h3>
 <h4>On <%= @track.album.album_name %></h4>
 
+<h3>Lyrics</h3>
+<pre><%= ugly_lyrics(@track.lyrics).html_safe %></pre>
+
 <h3>Notes</h3>
 <ul>
 <% @track.notes.each do |note| %>
@@ -16,11 +19,11 @@
 <% end %>
 </ul>
 
-<%= link_to "Edit this track", edit_track_url(@track.id) %>
-<br>
+<% if @current_user.admin %>
+  <%= link_to "Edit this track", edit_track_url(@track.id) %>
+  <br>
+  <%= button_to "Delete this track", track_url(@track.id), method: :delete %>
+<% end %>
 <%= link_to "Add a Note", new_track_note_url(@track.id) %>
 <br>
 <%= link_to "All tracks", tracks_url %>
-<% if @current_user.admin %>
-  <%= button_to "Delete this track", track_url(@track.id), method: :delete %>
-<% end %>

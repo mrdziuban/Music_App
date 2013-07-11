@@ -10,6 +10,9 @@
       <option value="<%= album.id %>"><%= album.album_name %></option>
     <% end %>
   </select>
+  <label for="lyrics">Lyrics</label><br>
+  <textarea name="track[lyrics]" id="lyrics" value="<%= @track.lyrics %>" columns="10">
+  </textarea>
 
   <input type="hidden"
            name="authenticity_token"

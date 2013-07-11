@@ -5,8 +5,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if @current_user %>
+  <% if @current_user.admin %>
+    <%= button_to "Admin console", users_url, method: :get %>
+  <% end %>
+<% end %>
 
 <%= yield %>
 
+<% unless session[:token].nil? %>
+  <%= button_to "Logout", sessions_url, method: :delete %>
+<% end %>
 </body>
 </html>

@@ -1,5 +1,5 @@
 class Track < ActiveRecord::Base
-  attr_accessible :album_id, :run_time, :track_name
+  attr_accessible :album_id, :run_time, :track_name, :lyrics
 
   belongs_to :album
   belongs_to :band

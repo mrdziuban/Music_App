@@ -7,9 +7,9 @@
   <% end %>
 </ul>
 
-<%= link_to "Edit this band", edit_band_url(@band.id) %>
-<br>
-<%= link_to "All bands", bands_url %>
 <% if @current_user.admin %>
+  <%= link_to "Edit this band", edit_band_url(@band.id) %>
+  <br>
   <%= button_to "Delete this band", band_url(@band.id), method: :delete %>
 <% end %>
+<%= link_to "All bands", bands_url %>

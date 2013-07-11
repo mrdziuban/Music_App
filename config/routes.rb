@@ -6,12 +6,13 @@ Music::Application.routes.draw do
     resources :notes, except: [:index, :show]
   end
 
-  resources :users, except: [:index] do
+  resources :users do
     member do
       get 'activate'
+      get 'adminize'
     end
   end
-  resources :sessions, only: [:new, :create, :destroy]
+  resource :sessions, only: [:destroy, :new, :create]
 
   root to: "sessions#new"
   # The priority is based upon order of creation:
