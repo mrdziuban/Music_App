@@ -1,0 +1,8 @@
+<h1><%= @track.track_name %></h1>
+<h3>By <%= @track.album.band.band_name %></h3>
+<h5>On <%= @track.album.album_name %></h5>
+
+<%= link_to "Edit this track", edit_track_url(@track.id) %>
+<br>
+<%= link_to "All tracks", tracks_url %>
+<%= button_to "Delete this track", track_url(@track.id), method: :delete %>

@@ -3,6 +3,8 @@ Music::Application.routes.draw do
   resources :bands
   resources :albums
   resources :tracks
+
+  root to: "bands#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,6 +1,8 @@
 <h1>Create band</h1>
 
-<%= form_for @band do |f| %>
-  <%= f.text_field :band_name %>
-  <%= f.submit "Create" %>
-<% end %>
+<form action="<%= bands_url %>" method="post">
+  <label for="band_name">Name</label>
+  <input type="text" name="band[band_name]" id="band_name" value="<%= @band.band_name %>">
+  <br>
+  <input type="submit" value="Update">
+</form>

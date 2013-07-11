@@ -1,0 +1,17 @@
+<h1>Edit <%= @track.track_name %></h1>
+
+<form action="<%= tracks_url %>" method="post">
+  <label for="track_name">Name</label>
+  <input type="text" name="track[track_name]" id="track_name" value="<%= @track.track_name %>">
+  <br>
+  <label for="album">Album</label>
+  <select name="track[album_id]" selected=value="<%= @track.album %>">
+    <% Album.all.each do |album| %>
+      <option value="<%= album.id %>"><%= album.album_name %></option>
+    <% end %>
+  </select>
+  <input type="submit" value="Create">
+</form>
+
+
+<%= flash[:notices] unless flash[:notices].nil? %>

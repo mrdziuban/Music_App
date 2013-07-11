@@ -1,28 +1,16 @@
 <h1>Create a Album</h1>
 
-<!-- <#%= form_for @album do |f| %>
-
-<#%= f.label :name %>
-<#%= f.text_field :album_name %>
-<br>
-<#% band_names = [] %>
-<#% @bands.each do |band| %>
-  <#% band_names << band.band_name %>
-<#% end %>
-<#%= f.label :band %>
-<#%= f.collection_select :band_id, band_names %>
-<#%= f.submit "Create" %>
-<#% end %> -->
-
-<form action="/albums" method="post">
+<form action="<%= albums_url %>" method="post">
   <label for="album_name">Name</label>
-  <input type="text" name="album[album_name]" id="album_name">
+  <input type="text" name="album[album_name]" id="album_name" value="<%= @album.album_name %>">
   <br>
   <label for="band">Band</label>
   <select name="album[band_id]">
-    <% @bands.each do |band| %>
-      <option value="<%= band.id %>"><%= band.band_name %></option>
+    <% Band.all.each do |band| %>
+      <option value="<%= band.id %>" <%= "selected" if @album.band_id == band.id%>><%= band.band_name %></option>
     <% end %>
   </select>
   <input type="submit" value="Create">
 </form>
+
+<%= flash[:notices] unless flash[:notices].nil? %>
