@@ -1,0 +1,7 @@
+<h1>User</h1>
+
+Email
+<%= @user.email %>
+
+<%= button_to "Edit user", edit_user_url(@user.id), method: :get %>
+<%= button_to "Delete user", user_url(@user.id), method: :delete %>

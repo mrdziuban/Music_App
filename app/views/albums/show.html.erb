@@ -10,4 +10,6 @@
 </ul>
 
 <%= link_to "Edit this Album", edit_album_url(@album.id) %>
-<%= button_to "Delete this Album", album_url(@album.id), method: :delete%>
+<% if @current_user.admin %>
+  <%= button_to "Delete this Album", album_url(@album.id), method: :delete%>
+<% end %>

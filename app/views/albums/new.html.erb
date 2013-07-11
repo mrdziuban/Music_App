@@ -10,6 +10,11 @@
       <option value="<%= band.id %>" <%= "selected" if @album.band_id == band.id%>><%= band.band_name %></option>
     <% end %>
   </select>
+
+  <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
   <input type="submit" value="Create">
 </form>
 

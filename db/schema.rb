@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711131117) do
+ActiveRecord::Schema.define(:version => 20130711193450) do
 
   create_table "albums", :force => true do |t|
     t.string   "album_name"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(:version => 20130711131117) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "notes", :force => true do |t|
+    t.text     "message"
+    t.integer  "track_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "notes", ["track_id"], :name => "index_notes_on_track_id"
+  add_index "notes", ["user_id"], :name => "index_notes_on_user_id"
+
   create_table "tracks", :force => true do |t|
     t.string   "track_name"
     t.integer  "album_id"
@@ -38,5 +49,15 @@ ActiveRecord::Schema.define(:version => 20130711131117) do
   end
 
   add_index "tracks", ["album_id"], :name => "index_tracks_on_album_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "session_token"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "activation_token"
+    t.boolean  "activated",        :default => false
+    t.boolean  "admin",            :default => false
+  end
 
 end

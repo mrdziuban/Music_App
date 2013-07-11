@@ -1,0 +1,13 @@
+<h1>Create User</h1>
+
+<form action="<%= users_url %>" method="post">
+  <label name="email">Email</label>
+  <input type="text" name="user[email]" id="email" value="<%= @user.email %>">
+  <input type="hidden" name="user[activation_token]" value="<%= SecureRandom.urlsafe_base64(8) %>">
+
+  <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
+  <input type="submit" value="Create">
+</form>

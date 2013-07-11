@@ -2,9 +2,18 @@ Music::Application.routes.draw do
 
   resources :bands
   resources :albums
-  resources :tracks
+  resources :tracks do
+    resources :notes, except: [:index, :show]
+  end
 
-  root to: "bands#index"
+  resources :users, except: [:index] do
+    member do
+      get 'activate'
+    end
+  end
+  resources :sessions, only: [:new, :create, :destroy]
+
+  root to: "sessions#new"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
