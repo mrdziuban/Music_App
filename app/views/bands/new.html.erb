@@ -1,13 +1,1 @@
-<h1>Create band</h1>
-
-<form action="<%= bands_url %>" method="post">
-  <label for="band_name">Name</label>
-  <input type="text" name="band[band_name]" id="band_name" value="<%= @band.band_name %>">
-  <br>
-
-  <input type="hidden"
-           name="authenticity_token"
-           value="<%= form_authenticity_token %>">
-
-  <input type="submit" value="Update">
-</form>
+<%= render :partial => "shared/new_edit_band", locals: {band: @band, action: "Create", url: bands_url} %>

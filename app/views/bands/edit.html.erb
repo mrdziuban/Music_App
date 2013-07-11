@@ -1,16 +1,1 @@
-<h1>Edit <%= @band.band_name %></h1>
-
-<form action="<%= band_url(@band.id) %>" method="post">
-  <label for="band_name">Name</label>
-  <input type="text" name="band[band_name]" id="band_name" value="<%= @band.band_name %>">
-  <input type="hidden" name="_method" value="put">
-  <br>
-
-  <input type="hidden"
-           name="authenticity_token"
-           value="<%= form_authenticity_token %>">
-
-  <input type="submit" value="Update">
-</form>
-
-<%= flash[:notices] unless flash[:notices].nil? %>
+<%= render :partial => "shared/new_edit_band", locals: {band: @band, action: "Edit", url: band_url(@band.id)} %>

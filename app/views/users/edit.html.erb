@@ -1,14 +1,1 @@
-<h1>Edit user</h1>
-
-<form action="<%= user_url(@user.id) %>" method="post">
-  <label name="email">Email</label>
-  <input type="text" name="user[email]" id="email" value="<%= @user.email %>">
-  <input type="hidden" name="_method" value="put">
-  <br>
-
-  <input type="hidden"
-           name="authenticity_token"
-           value="<%= form_authenticity_token %>">
-
-  <input type="submit" value="Create">
-</form>
+<%= render partial: "shared/new_edit_user", locals: {user: @user, url: user_url(@user.id), action: "Edit"} %>

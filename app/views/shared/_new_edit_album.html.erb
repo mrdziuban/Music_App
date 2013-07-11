@@ -1,0 +1,26 @@
+<h1><%= action %> a Album</h1>
+
+<form action="<%= url %>" method="post">
+  <label for="album_name">Name</label>
+  <input type="text" name="album[album_name]" id="album_name" value="<%= album.album_name %>">
+  <br>
+  <label for="band">Band</label>
+  <select name="album[band_id]">
+    <% bands.each do |band| %>
+      <option value="<%= band.id %>" <%= "selected" if album.band_id == band.id%>><%= band.band_name %></option>
+    <% end %>
+  </select>
+
+  <% if action == "Edit" %>
+    <input type="hidden" name="_method" value="put">
+  <% end %>
+  <br>
+
+  <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
+  <input type="submit" value="<%= action %>">
+</form>
+
+<%= flash[:notices] unless flash[:notices].nil? %>

@@ -1,0 +1,23 @@
+<h1><%= action %> note</h1>
+
+<form action="<%= url %>" method="post">
+  <label name="message">Message</label>
+  <br>
+  <textarea name="note[message]" id="message" value="<%= note.message %>" rows="6"></textarea>
+
+  <input type="hidden" name="note[track_id]" value="<%= track_id %>">
+
+  <input type="hidden" name="note[user_id]" value="<%= user_id %>">
+
+  <% if action == "Edit" %>
+    <input type="hidden" name="_method" value="put">
+  <% end %>
+  <br>
+
+
+  <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
+  <input type="submit" value="<%= action %>">
+</form>
