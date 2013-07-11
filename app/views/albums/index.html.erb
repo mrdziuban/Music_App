@@ -1,0 +1,13 @@
+<h1> Every Album We Have On Our Site!!!!!!!!!!</h1>
+
+<ul>
+<% @albums.each do |album| %>
+  <li>
+    <%= link_to "#{album.album_name}", album_url(album.id) %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create Album", new_album_url %>
+
+<%= flash[:notices] unless flash[:notices].nil? %>

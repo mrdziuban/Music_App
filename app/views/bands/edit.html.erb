@@ -1,0 +1,8 @@
+<h1>Edit <%= @band.band_name %></h1>
+
+<%= form_for @band do |f| %>
+  <%= f.text_field :band_name %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<%= flash[:notices] unless flash[:notices].nil? %>

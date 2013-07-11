@@ -1,0 +1,12 @@
+<h1><%= @album.album_name %></h1>
+<h3>By <%= @album.band.band_name %></h3>
+<img src="<%= @album.cover_art_link %>">
+
+<ul>
+  <% @album.tracks.each do |track| %>
+    <li><%= link_to "#{track.track_name}", track_url(track.id) %></li>
+  <% end %>
+</ul>
+
+<%= button_to "Edit this Album", edit_album_url(@album.id)%>
+<%= button_to "Delete this Album", album_url(@album.id), method: :delete%>

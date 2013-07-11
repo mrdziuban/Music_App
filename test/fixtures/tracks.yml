@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  track_name: MyString
+  album_id: 1
+  run_time: 2013-07-11 09:03:45
+
+two:
+  track_name: MyString
+  album_id: 1
+  run_time: 2013-07-11 09:03:45
