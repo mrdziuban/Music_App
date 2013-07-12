@@ -26,4 +26,8 @@
 <% end %>
 <%= link_to "Add a Note", new_track_note_url(@track.id) %>
 <br>
+<%= link_to "View this track's album", album_url(@track.album_id) %>
+<br>
+<%= link_to "View this track's artist", band_url(@track.album.band_id) %>
+<br>
 <%= link_to "All tracks", tracks_url %>
