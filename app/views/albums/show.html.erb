@@ -16,4 +16,6 @@
   <%= link_to "Create track", new_track_url %>
   <br>
 <% end %>
+<%= link_to "View this album's band", band_url(@album.band_id) %>
+<br>
 <%= link_to "All albums", albums_url %>
